@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+   <localRepository>C:\Users\Rajesh\.m2</localRepository>
+
+  <proxies>
+      <proxy>
+         <id>efx</id>
+         <active>true</active>
+         <protocol>http</protocol>
+         <host>no-proxy.app.c9.equifax.com</host>
+         <port>3128</port>
+         <!--
+username>iccore</username>
+      <password>chunkybacon</password
+-->
+         <nonProxyHosts>nexus.us.equifax.com</nonProxyHosts>
+      </proxy>
+   </proxies>
+   <!--  Enable shortcuts for common plugin groups.  -->
+   <pluginGroups>
+      <pluginGroup>org.apache.maven.plugins</pluginGroup>
+      <pluginGroup>org.codehaus.mojo</pluginGroup>
+      <pluginGroup>com.equifax.ic.maven.plugins</pluginGroup>
+   </pluginGroups>
+   <profiles>
+      <profile>
+         <id>nexus</id>
+         <activation>
+            <property>
+               <name>add.scm.revision</name>
+               <value>true</value>
+            </property>
+         </activation>
+         <repositories>
+            <repository>
+               <id>cep-group</id>
+               <url>https://nexus.us.equifax.com/repository/cse-cep-df-maven-group/</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>true</enabled>
+               </snapshots>
+            </repository>
+            <repository>
+               <id>cep-yum-group</id>
+               <url>https://nexus.us.equifax.com/repository/cse-cep-df-yum-group</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>true</enabled>
+               </snapshots>
+            </repository>
+
+		
+            <repository>
+               <id>central</id>
+               <url>https://nexus.us.equifax.com/repository/efxmaven</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>true</enabled>
+               </snapshots>
+            </repository>
+			
+			<repository>
+               <id>eo-dataprotection-releases-maven-hosted</id>
+               <url>https://nexus.us.equifax.com/repository/eo-dataprotection-releases-maven-hosted</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>true</enabled>
+               </snapshots>
+            </repository>
+			
+			
+			<repository>
+               <id>df-releases-maven-hosted</id>
+               <url>https://nexus.us.equifax.com/repository/df-releases-maven-hosted/</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>true</enabled>
+               </snapshots>
+            </repository>
+			
+			<repository>
+               <id>df-snapshots-maven-hosted</id>
+               <url>https://nexus.us.equifax.com/repository/df-snapshots-maven-hosted/</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>true</enabled>
+               </snapshots>
+            </repository>
+
+            <repository>
+               <id>public-maven-proxy</id>
+               <url>https://nexus.us.equifax.com/repository/public-maven-proxy</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>true</enabled>
+               </snapshots>
+            </repository>
+         </repositories>
+         <pluginRepositories>
+            <pluginRepository>
+               <id>cep-group</id>
+               <url>https://nexus.us.equifax.com/repository/cse-cep-df-maven-group/</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>true</enabled>
+               </snapshots>
+            </pluginRepository>
+			
+			<pluginRepository>
+               <id>df-snapshots-maven-hosted</id>
+               <url>https://nexus.us.equifax.com/repository/df-snapshots-maven-hosted/</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>true</enabled>
+               </snapshots>
+            </pluginRepository>
+			
+			
+			
+			
+            <pluginRepository>
+               <id>central</id>
+               <url>https://nexus.us.equifax.com/repository/efxmaven</url>
+               <releases>
+                  <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                  <enabled>true</enabled>
+               </snapshots>
+            </pluginRepository>
+         </pluginRepositories>
+         <properties>
+            <distributionManagement.release.id>nexus-release</distributionManagement.release.id>
+            <distributionManagement.release.url>https://nexus.us.equifax.com/repository/cse-cep-releases-maven-hosted</distributionManagement.release.url>
+            <distributionManagement.snapshot.id>nexus-snapshot</distributionManagement.snapshot.id>
+            <distributionManagement.snapshot.url>https://nexus.us.equifax.com/repository/cse-cep-snapshots-maven-hosted</distributionManagement.snapshot.url>
+            <distributionManagement.yum.release.id>nexus-yum</distributionManagement.yum.release.id>
+            <distributionManagement.yum.release.url>https://nexus.us.equifax.com/repository/cse-cep-rpm-releases-yum-hosted</distributionManagement.yum.release.url>
+            <distributionManagement.yum.snapshot.id>nexus-yum</distributionManagement.yum.snapshot.id>
+            <distributionManagement.yum.snapshot.url>https://nexus.us.equifax.com/repository/cse-cep-rpm-snapshots-yum-hosted</distributionManagement.yum.snapshot.url>
+            <distributionManagement.site.id>localhost</distributionManagement.site.id>
+            <distributionManagement.site.url>file:///devcentral/service/ci/var/www/anyhost/projects/${project.groupId}/${project.artifactId}</distributionManagement.site.url>
+         </properties>
+      </profile>
+   </profiles>
+   <activeProfiles>
+      <activeProfile>nexus</activeProfile>
+   </activeProfiles>
+   <servers>
+      <server>
+         <id>dev</id>
+         <username>HQg0M7tm</username>
+         <password>jy5ttgNaFD9jRsc7P_AQCe9dWu8dWSQTZ82jePsqMdjF</password>
+      </server>
+      <server>
+         <id>nexus-yum</id>
+         <username>pNzOYfLL</username>
+         <password>FskVesIOkgEdrZALclq7EdWI__mzzhZlu_cGRps9dW6v</password>
+      </server>
+      <server>
+         <!--  obtained from Andre Tong for testing  -->
+         <id>nexus</id>
+         <username>pNzOYfLL</username>
+         <password>FskVesIOkgEdrZALclq7EdWI__mzzhZlu_cGRps9dW6v</password>
+      </server>
+   </servers>
+</settings>
